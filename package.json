@@ -1,0 +1,28 @@
+{
+  "name": "pokedex-mvc",
+  "version": "1.0.0",
+  "description": "Pokedex MVC using node and javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulianePires/pokedex-mvc.git"
+  },
+  "author": "Juliane Pires",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JulianePires/pokedex-mvc/issues"
+  },
+  "homepage": "https://github.com/JulianePires/pokedex-mvc#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
