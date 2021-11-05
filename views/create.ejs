@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Pokedéx - Create</title>
+  </head>
+  <body>
+    <nav>
+      <span class="hstack">
+        <img src="/images/pokeball.png" alt="Pokeball" />
+        <h1>Pokédex</h1>
+      </span>
+      <span class="hstack">
+        <a href="/">Home</a>
+        <a href="/create" class="active">Create</a>
+        <a href="/about">About</a>
+      </span>
+    </nav>
+    <section class="container">
+        <form action="" method="post">
+            
+          <label for="name">Name: </label>
+            <input type="text" name="name" id="name" placeholder="Pokemon Name" />
+            
+            <label for="photo">Photo: </label>
+            <input type="file" name="photo" id="photo">
+            
+            <label for="type">Pokemon Type</label>
+            <select name="type" id="type">
+                <% types.forEach((type, index) => { %>
+                <option key={<%= index%>} value={<%= type%>}>
+                    <%= type%>
+                </option> 
+                <% }) %>
+            </select>
+        </form>
+    </section>
+  </body>
+</html>

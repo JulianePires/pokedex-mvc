@@ -1,0 +1,336 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap");
+
+:root {
+  --primary: #ff1744;
+  --secondary: #c4001d;
+  --dark-gray: #212121;
+  --gray: #757575;
+  --light-gray: #e0e0e0;
+  --white: #fafafa;
+  --black: #000000;
+  --electric: #ffeb3b;
+  --grass: #00c853;
+  --bug: #2e7d32;
+  --steel: #43bd94;
+  --water: #0091ea;
+  --dragon: #26c6da;
+  --ice: #80deea;
+  --fighting: #ffab00;
+  --ground: #a8702d;
+  --fire: #fd4b5a;
+  --flying: #94b2c7;
+  --normal: #a5a5a8;
+  --poison: #9b69da;
+  --psychic: #a53c74;
+  --rock: #7d3a22;
+  --fairy: #e91368;
+  --dark: #595978;
+  --ghost: #906791;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--dark-gray);
+}
+
+body,
+input,
+button,
+option {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+option,
+select {
+  text-transform: capitalize;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  height: 8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  padding: 2rem;
+
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 600;
+}
+
+nav img {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1rem;
+}
+
+label {
+    margin-bottom: 0.5rem;
+}
+
+input {
+  width: 22rem;
+  height: 2rem;
+
+  border: none;
+  border-radius: 4px;
+
+  margin-bottom: 1rem;
+}
+
+input::-webkit-file-upload-button{
+    border: none;
+    height: 2rem;
+
+    background: var(--secondary);
+    color: var(--white);
+    border-radius: 4px;
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+.hstack {
+  min-width: fit-content;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.hstack a {
+  margin-right: 1rem;
+
+  transition: color 0.2s;
+}
+
+.hstack a:hover {
+  color: var(--secondary);
+}
+
+.hstack a .active {
+  color: var(--dark-gray);
+}
+
+main {
+  padding: 4rem;
+}
+
+.container {
+  min-height: 10rem;
+  padding: 2rem;
+
+  border-radius: 0.8rem;
+  border: 4px solid var(--white);
+
+  background: var(--light-gray);
+}
+
+.container:nth-child(2) {
+    margin-top: 4rem;
+}
+
+#toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 10rem;
+}
+
+#toolbar input {
+  width: 22rem;
+  height: 2rem;
+
+  border: none;
+  border-radius: 4px;
+
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+#toolbar input:focus {
+  outline: var(--fighting);
+}
+
+#toolbar button {
+  width: 2.5rem;
+  height: 2.5rem;
+
+  border: none;
+  border-radius: 4px;
+
+  background: var(--secondary);
+  cursor: pointer;
+}
+
+#toolbar img {
+  width: 1.5rem;
+}
+
+#search-zone {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#filter-zone {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+select {
+  width: 70%;
+  height: 2rem;
+  padding-left: 1rem;
+
+  border: none;
+  border-radius: 4px;
+
+  color: var(--gray);
+  cursor: pointer;
+}
+
+#pokemons-zone {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 15rem;
+  height: 15rem;
+
+  background: var(--white);
+
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  margin: 1rem;
+}
+
+.card h3 {
+  color: var(--secondary);
+}
+
+.card-image {
+  width: 4rem;
+}
+
+.card-text {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-text p {
+  color: var(--white);
+  padding: 0.1rem 0.5rem;
+  margin: 0.2rem 0.2rem;
+
+  border-radius: 0.2rem;
+}
+
+.card-text p#bug {
+  background: var(--bug);
+}
+
+.card-text p#dark {
+  background: var(--dark);
+}
+
+.card-text p #dragon {
+  background: var(--dragon);
+}
+
+.card-text p#electric {
+  background: var(--electric);
+  color: var(--dark-gray);
+}
+
+.card-text p#fairy {
+  background: var(--fairy);
+  color: var(--dark-gray);
+}
+
+.card-text p #fighting {
+  background: var(--fighting);
+  color: var(--dark-gray);
+}
+
+.card-text p#fire {
+  background: var(--fire);
+}
+
+.card-text p#flying {
+  background: var(--flying);
+  color: var(--dark-gray);
+}
+
+.card-text p#ghost {
+  background: var(--ghost);
+}
+
+.card-text p#grass {
+  background: var(--grass);
+}
+
+.card-text p#ground {
+  background: var(--ground);
+}
+
+.card-text p#ice {
+  background: var(--ice);
+  color: var(--dark-gray);
+}
+
+.card-text p#normal {
+  background: var(--normal);
+  color: var(--dark-gray);
+}
+
+.card-text p#poison {
+  background: var(--poison);
+  color: var(--dark-gray);
+}
+
+.card-text p#psychic {
+  background: var(--psychic);
+}
+
+.card-text p#rock {
+  background: var(--rock);
+}
+
+.card-text p#steel {
+  background: var(--steel);
+  color: var(--dark-gray);
+}
+
+.card-text p#water {
+  background: var(--water);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}

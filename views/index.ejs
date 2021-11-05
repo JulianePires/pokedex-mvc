@@ -1,15 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <h1><%= title %></h1>
-    </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Pokédex - MVC</title>
+  </head>
+  <body>
+    <nav>
+      <span class="hstack">
+        <img src="/images/pokeball.png" alt="Pokeball" />
+        <h1>Pokédex</h1>
+      </span>
+      <span class="hstack">
+        <a href="/" class="active">Home</a>
+        <a href="/create">Create</a>
+        <a href="/about">About</a>
+      </span>
+    </nav>
+    <main>
+      <section id="toolbar" class="container">
+        <span id="search-zone">
+          <input
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Pokemon name"
+          />
+          <button type="submit">
+            <img src="/svgs/search-solid.svg" alt="search" />
+          </button>
+        </span>
+        <span id="filter-zone">
+          <select name="filters" id="filters">
+            <% filters.forEach((filter, index) => { %>
+            <option key=<%= index%> value=<%= filter.type%> >
+                <%= filter.name%>
+            </option>
+            <% }) %>
+          </select>
+        </span>
+      </section>
+
+      <section id="pokemons-zone" class="container">
+        <% pokemons.forEach((pokemon, index) => {%>
+        <article class="card">
+          <h3><%= pokemon.name%></h3>
+          <img class="card-image" src="<%= pokemon.image%>" alt={<%=
+          pokemon.name%>}>
+          <div class="card-text">
+            <% pokemon.tags.forEach(tag => {%>
+            <p key=<%= tag%> id=<%= tag%> ><%= tag%></p>
+            <% }) %>
+          </div>
+        </article>
+        <% }) %>
+      </section>
+    </main>
     <script src="/js/script.js"></script>
-</body>
+  </body>
 </html>
