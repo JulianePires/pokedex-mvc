@@ -8,6 +8,8 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded());
 
+let message = "";
+
 const types = [
   "bug",
   "dark",
@@ -29,7 +31,7 @@ const types = [
   "water",
 ];
 
-const pokemons = [
+let pokemons = [
   {
     name: "Pikachu",
     image: "/images/pikachu.png",
@@ -63,27 +65,49 @@ app.get("/", (req, res) => {
     .filter((pok) => pok.name.toLowerCase().includes(selectedFilter.name))
     .sort((a, b) => (selectedFilter.order === "cresc" ? a < b : a > b));
 
+  res.render("index", {
+    title: "Pokédex",
+    filters,
+    pokemons: ordered,
+    selectedFilter,
+    message
+  });
+
   setTimeout(() => {
     selectedFilter = {
       name: "",
       order: "cresc",
     };
+    message = "";
   }, 1000);
-
-  res.render("index", { title: "Pokédex", filters, pokemons: ordered });
 });
 
 app.post("/search", (req, res) => {
   const { name, order } = req.body;
   selectedFilter = { name, order };
+  res.redirect("/");
 });
 
 app.get("/create", (req, res) => {
   res.render("create", { types });
+  
 });
 
-app.get("/about", (req, res) => {
-  res.render("about");
+//TODO --> Salvamento de arquivos não está funcionando
+
+app.post("/create", (req, res) => {
+  const { name, photo, type } = req.body;
+
+  console.log(type);
+  
+  pokemons.push({
+    name: name,
+    image: photo,
+    tags: type,
+  });
+
+  message = `Seu pokemon ${name}, foi adicionado com sucesso!`;
+  res.redirect("/");
 });
 
 app.listen(port, () =>

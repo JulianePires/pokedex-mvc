@@ -16,27 +16,42 @@
       <span class="hstack">
         <a href="/">Home</a>
         <a href="/create" class="active">Create</a>
-        <a href="/about">About</a>
       </span>
     </nav>
-    <section class="container">
-        <form action="" method="post">
-            
+    <main>
+      <section class="container" id="create-container">
+        <form action="/create" method="post">
+          <object data="/images/pokeballs.png" type="image/png">
+            <img src="" alt="Pokemon image" id="pokemon-image" />
+          </object>
+
           <label for="name">Name: </label>
-            <input type="text" name="name" id="name" placeholder="Pokemon Name" />
-            
-            <label for="photo">Photo: </label>
-            <input type="file" name="photo" id="photo">
-            
-            <label for="type">Pokemon Type</label>
-            <select name="type" id="type">
-                <% types.forEach((type, index) => { %>
-                <option key={<%= index%>} value={<%= type%>}>
-                    <%= type%>
-                </option> 
-                <% }) %>
-            </select>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Pokemon Name"
+            required
+          />
+
+          <label for="photo">Photo: </label>
+          <input
+            type="file"
+            name="photo"
+            id="photo"
+            required
+          />
+
+          <label for="type">Pokemon Type: </label>
+          <select name="type" id="type" multiple required>
+            <% types.forEach((type, index) => { %>
+            <option key=<%=index%> value=<%= type%> ><%= type%></option>
+            <% }) %>
+          </select>
+
+          <button type="submit" id="create-button">Create</button>
         </form>
-    </section>
+      </section>
+    </main>
   </body>
 </html>

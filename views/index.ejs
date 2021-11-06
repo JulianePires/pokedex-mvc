@@ -8,6 +8,7 @@
     <title>Pokédex - MVC</title>
   </head>
   <body>
+    
     <nav>
       <span class="hstack">
         <img src="/images/pokeball.png" alt="Pokeball" />
@@ -16,48 +17,64 @@
       <span class="hstack">
         <a href="/" class="active">Home</a>
         <a href="/create">Create</a>
-        <a href="/about">About</a>
       </span>
     </nav>
+    
+    <% if(message != "") { %>
+      <section id="message">
+        <p><%= message %></p>
+        <span id="close">&times;</span>
+      </section>
+    <% } %>
+
     <main>
       <section id="toolbar" class="container">
-        <span id="search-zone">
-          <input
-            type="search"
-            name="search"
-            id="search"
-            placeholder="Pokemon name"
-          />
-          <button type="submit">
-            <img src="/svgs/search-solid.svg" alt="search" />
-          </button>
-        </span>
-        <span id="filter-zone">
-          <select name="filters" id="filters">
-            <% filters.forEach((filter, index) => { %>
-            <option key=<%= index%> value=<%= filter.type%> >
-                <%= filter.name%>
-            </option>
-            <% }) %>
-          </select>
-        </span>
+        <form action="/search" method="post">
+          <span id="search-zone">
+            <input
+              type="search"
+              name="name"
+              id="search"
+              placeholder="Pokemon name"
+              required
+            />
+        
+            <button type="submit" id="search-submit-button">
+              <img src="/svgs/search-solid.svg" alt="search" />
+            </button>
+          </span>
+         
+          <span id="filter-zone">
+            <select name="order" id="order-filter">
+              <% filters.forEach((filter, index) => { %>
+                <option key=<%= index%> value=<%= filter.type%> >
+                    <%= filter.name%>
+                </option>
+              <% }) %>
+            </select>
+          </span>
+        </form>
       </section>
 
       <section id="pokemons-zone" class="container">
-        <% pokemons.forEach((pokemon, index) => {%>
-        <article class="card">
-          <h3><%= pokemon.name%></h3>
-          <img class="card-image" src="<%= pokemon.image%>" alt={<%=
-          pokemon.name%>}>
-          <div class="card-text">
-            <% pokemon.tags.forEach(tag => {%>
-            <p key=<%= tag%> id=<%= tag%> ><%= tag%></p>
-            <% }) %>
-          </div>
-        </article>
+        <% pokemons.forEach((pokemon, index) => { %>
+          <article class="card">
+            <h3><%= pokemon.name%></h3>
+              <img 
+                class="card-image" 
+                src="<%= pokemon.image%>" 
+                alt=<%= pokemon.name%>
+              >
+            <div class="card-text">
+              <% pokemon.tags.forEach(tag => { %>
+                <p key=<%= tag%> id=<%= tag%>><%= tag%></p>
+              <% }) %>
+            </div>
+          </article>
         <% }) %>
       </section>
     </main>
+    
     <script src="/js/script.js"></script>
   </body>
 </html>
