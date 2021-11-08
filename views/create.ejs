@@ -20,16 +20,25 @@
     </nav>
     <main>
       <section class="container" id="create-container">
-        <form action="/create" method="post">
+        <form action="/new" method="post">
           <object data="/images/pokeballs.png" type="image/png">
             <img src="" alt="Pokemon image" id="pokemon-image" />
           </object>
+
+          <label for="number">Número: </label>
+          <input
+            type="number"
+            name="number"
+            class="create-inputs"
+            placeholder="Pokemon Number"
+            required
+          />
 
           <label for="name">Name: </label>
           <input
             type="text"
             name="name"
-            id="name"
+            class="create-inputs"
             placeholder="Pokemon Name"
             required
           />
@@ -38,7 +47,7 @@
           <input
             type="file"
             name="photo"
-            id="photo"
+            class="create-inputs"
             required
           />
 
@@ -48,6 +57,52 @@
             <option key=<%=index%> value=<%= type%> ><%= type%></option>
             <% }) %>
           </select>
+
+          <label for="description">Descrição: </label>
+          <input
+            type="text"
+            name="description"
+            class="create-inputs"
+            placeholder="Pokemon Description"
+            required
+          />
+
+          <label for="height">Altura: </label>
+          <input
+            type="number"
+            name="height"
+            class="create-inputs"
+            placeholder="Pokemon height"
+            data-mask="0.00"
+            required
+          />
+
+          <label for="weight">Peso: </label>
+          <input
+            type="number"
+            name="weight"
+            class="create-inputs"
+            placeholder="Pokemon height"
+            required
+          />
+
+          <label for="category">Categoria: </label>
+          <input
+            type="text"
+            name="category"
+            class="create-inputs"
+            placeholder="Pokemon category"
+            required
+          />
+
+          <label for="ability">Habilidade: </label>
+          <input
+            type="text"
+            name="ability"
+            class="create-inputs"
+            placeholder="Pokemon ability"
+            required
+          />
 
           <button type="submit" id="create-button">Create</button>
         </form>

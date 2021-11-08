@@ -27,6 +27,6 @@ closeMessage.addEventListener("click", function () {
   message.style.display = "none";
 });
 
-// setTimeout(() => {
-//   message.style.display = "none";
-// }, 5000);
+setTimeout(() => {
+  message.style.display = "none";
+}, 5000);

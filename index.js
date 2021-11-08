@@ -70,7 +70,7 @@ app.get("/", (req, res) => {
     filters,
     pokemons: ordered,
     selectedFilter,
-    message
+    message,
   });
 
   setTimeout(() => {
@@ -90,20 +90,35 @@ app.post("/search", (req, res) => {
 
 app.get("/create", (req, res) => {
   res.render("create", { types });
-  
 });
 
 //TODO --> Salvamento de arquivos não está funcionando
 
-app.post("/create", (req, res) => {
-  const { name, photo, type } = req.body;
+app.post("/new", (req, res) => {
+  const {
+    number,
+    name,
+    photo,
+    type,
+    description,
+    height,
+    weight,
+    category,
+    ability,
+  } = req.body;
 
   console.log(type);
-  
+
   pokemons.push({
+    number: number,
     name: name,
     image: photo,
     tags: type,
+    description: description,
+    height: height,
+    weight: weight,
+    category: category,
+    ability: ability,
   });
 
   message = `Seu pokemon ${name}, foi adicionado com sucesso!`;
